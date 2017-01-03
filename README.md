@@ -21,6 +21,6 @@ or
 
     my_function($foo, $bar, {host => '127.0.0.1', port => 5000});
 
-The problem is that it isn't immediately obvious how the function is distinguishing those two cases under the hood. It might be counting the number of arguments, or it might be inspecting `$ARGV[2]` to see if it's a simple scalar or a hashref. It might also be checking to see if the *last* argument is a hashref.
+The problem is that it isn't immediately obvious how the function is distinguishing those two cases under the hood. It might be counting the number of arguments, or it might be inspecting `$_[2]` to see if it's a simple scalar or a hashref. It might also be checking to see if the *last* argument is a hashref.
 
 Trying to discern the intent of the user by what arguments they handed you can result in stuff like the now deprecated smart match operator `~~`. It has the potential to silently do something legitimate but unexpected in many cases. It's worth noting that the operator was created to surface the behavior of the `given` ... `when` construction which typically matches an unknown value against a value known at compile time, reducing the unpredictability somewhat.
