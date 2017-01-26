@@ -1,15 +1,12 @@
 package Params;
-BEGIN {
-    require Exporter;
-    @ISA = qw[Exporter];
-    @EXPORT_OK = qw[
-        check_hash
-        check_hashopt
-        check_options
-    ];
-}
 use strict;
 use warnings;
+use Exporter qw[import];
+our @EXPORT_OK = qw[
+    check_hash
+    check_hashopt
+    check_options
+];
 
 
 # checks if a hash contains only the keys given
