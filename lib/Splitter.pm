@@ -9,6 +9,7 @@ sub split_preserving_sep {
     my ($pat, $str) = @_;
 
     my $original_pos = pos $str;
+    pos($str) = 0;
     
     my $start = 0;
     my $m_start = 0;
@@ -27,6 +28,7 @@ sub split_preserving_sep {
     }
 
     push @out, (substr $str, $start, (length($str) - $start));
+    pos($str) = $original_pos;
 
     @out;
 }
