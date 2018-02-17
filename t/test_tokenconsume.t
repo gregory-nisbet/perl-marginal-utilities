@@ -5,7 +5,7 @@ use Test::More tests => 7;
 use Test::Deep;
 use Test::Exception;
 
-use TokenConsume qw[consume consume_offset is_match is_loose_match];
+use TokenConsume qw[consume is_match is_loose_match];
 
 # test consume
 
