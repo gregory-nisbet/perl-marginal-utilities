@@ -5,7 +5,9 @@ use Test::More tests => 7;
 use Test::Deep;
 use Test::Exception;
 
-use TokenConsume qw[consume];
+use TokenConsume qw[consume consume_offset is_match is_loose_match];
+
+# test consume
 
 do {
     my $str = "abc";
@@ -36,4 +38,11 @@ do {
     my $res = consume($str, qr/z/, 1);
     is($res, undef, "non-first: failed match should capture nothing");
     is(pos($str), 1, "non-first: failed match should return pos to beginning of search");
+};
+
+# test consume_offset
+
+do {
+    my $str = "abc";
+    pos($str) = 0;
 };

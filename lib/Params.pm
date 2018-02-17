@@ -52,7 +52,7 @@ sub check_hashopt {
     }
 
     while (my ($key, $value) = each %args) {
-        (exists $mandatory_key_counter{$key} or exists $optional_key{$key}) or 
+        (exists $mandatory_key_counter{$key} or exists $optional_key{$key}) or
             die (sprintf "expected is missing. key: '%s'", $key);
         delete $mandatory_key_counter{$key};
     }
@@ -97,13 +97,13 @@ sub check_options {
     ($positional_chunk, $named_chunk) = split /[|]/, $specifier, 2;
     $positional_chunk //= '';
     $named_chunk //= '';
-    
+
     # split the positional portion of the specifier string into words
     if ($positional_chunk ne '') {
         @positional_words = split /[ ]*/, $positional_chunk;
         @positional_words = grep { $_ ne '' } @positional_words;
     }
-    
+
     # validate the positional words
     /[ |?]/ and die 'invalid specifier' foreach @positional_words;
 
